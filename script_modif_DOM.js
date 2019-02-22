@@ -74,7 +74,7 @@ changeViewButtons()
 
 function laSpeciale() {
     let addDiv = document.createElement('div');
-    addDiv.textContent = "Ajout d'un div avec Row";
+    // addDiv.textContent = "Ajout d'un div avec Row";
     addDiv.setAttribute('class', 'row');
     let myRowCardElmtn = document.querySelectorAll("div.row")[1];
     // myRowCardElmtn.appendChild(addDiv);
@@ -85,15 +85,15 @@ laSpeciale()
 
 
 function laComplete() {
-    let myCardToMoveElt = document.getElementsByClassName("card mb-4 box-shadow")[2];
+    let myCardToMoveElt = document.getElementsByClassName("col-md-4")[2];
+    let cloneCard = myCardToMoveElt.cloneNode(true);
     // console.log(myCardToMoveElt.innerText);
-    let parent = document.querySelectorAll("div.row")[2];
-    console.log(parent);
+    
+    let newParent = document.querySelectorAll("div.row")[2];
+    // console.log(newParent.innerText);
 
-    let node = myCardToMoveElt;
-    // parent = document.querySelectorAll("div.row")[1];
-    prev = node.previousSibling;
-    oldChild = parent.cloneNode(node);
-    parent.insertBefore(oldChild, prev);
+    newParent.appendChild(cloneCard);
+    myCardToMoveElt.parentNode.removeChild(myCardToMoveElt)
+
 }
 laComplete()
